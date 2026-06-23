@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunitha Kumar Girish — Director of Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1b1916;
+    --bg-alt: #201d19;
+    --surface: #262320;
+    --rule: #3a352d;
+    --text: #ede7da;
+    --text-dim: #aca496;
+    --text-faint: #756e60;
+
+    --c-console: #c9763e;
+    --c-licensed: #c2924a;
+    --c-platform: #8b9b6b;
+    --c-social: #5f9b8a;
+    --c-founder: #5f7e93;
+
+    --maxw: 880px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--c-platform);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  section{ padding: 96px 0; }
+  section.alt{ background: var(--bg-alt); }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding: 120px 0 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero h1{
+    font-size: clamp(40px, 7vw, 64px);
+    line-height: 1.05;
+  }
+  .hero .role{
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--text-dim);
+    margin-top: 14px;
+    font-weight: 500;
+  }
+  .hero p.thesis{
+    max-width: 620px;
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-top: 28px;
+  }
+
+  .spectrum{
+    margin-top: 44px;
+  }
+  .spectrum-label{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .spectrum-bar{
+    display: flex;
+    height: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .spectrum-bar span{ flex: 1; }
+  .spectrum-keys{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 16px;
+  }
+  .spectrum-key{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-dim);
+  }
+  .dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero-links{
+    margin-top: 40px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+  }
+  .hero-links a{
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 3px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .hero-links a:hover{
+    color: var(--text);
+    border-color: var(--text-dim);
+  }
+
+  /* ---------- HIGHLIGHTS ---------- */
+  .highlights-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 36px;
+  }
+  .highlight{
+    background: var(--bg);
+    padding: 30px 28px;
+  }
+  .highlight p{ margin: 0; color: var(--text-dim); font-size: 15.5px; }
+  .highlight strong{ color: var(--text); font-weight: 600; }
+
+  @media (max-width: 640px){
+    .highlights-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-row{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--rule);
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .exp-row.in-view{ opacity: 1; transform: translateY(0); }
+  .exp-row:last-child{ border-bottom: none; }
+
+  .exp-meta{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .exp-meta .dates{ color: var(--text-dim); margin-bottom: 10px; display:block; }
+
+  .tag{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px;
+    border-radius: 100px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    color: var(--text-dim);
+  }
+
+  .exp-body h3{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .exp-body .company{
+    color: var(--text-dim);
+    font-size: 14.5px;
+    margin-top: 4px;
+  }
+  .exp-body ul{
+    margin: 14px 0 0;
+    padding-left: 20px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .exp-body li{ margin-bottom: 6px; }
+  .exp-body li::marker{ color: var(--text-faint); }
+
+  @media (max-width: 640px){
+    .exp-row{ grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{ margin-bottom: 30px; }
+  .skill-group:last-child{ margin-bottom: 0; }
+  .skill-group h3{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .pills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    color: var(--text-dim);
+  }
+
+  /* ---------- EDU / AWARDS ---------- */
+  .meta-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  .meta-col h3{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+  }
+  .meta-col p{
+    margin: 0 0 10px;
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
+  .meta-col p strong{ color: var(--text); font-weight: 500; display:block; }
+
+  @media (max-width: 700px){
+    .meta-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact h2{
+    font-size: clamp(28px, 5vw, 40px);
+    max-width: 560px;
+  }
+  .contact p.lead{
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 520px;
+    margin-top: 18px;
+  }
+  .contact-links{
+    margin-top: 36px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+  }
+  .contact-links a{
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .contact-links a:hover{ color: var(--text); border-color: var(--text-dim); }
+
+  footer{
+    padding: 36px 0 56px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .exp-row{ transition: none; opacity: 1; transform: none; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Director of Production · Studio Leadership · Creative Technologist</span>
+    <h1>Sunitha Kumar Girish</h1>
+    <p class="role">Aarhus, Denmark</p>
+    <p class="thesis">Twenty years turning ambiguity into shipped product, across AAA console, licensed IP, social and casual, platform, and founder led indie. Two companies built and run from zero to ship as sole executive.</p>
+
+    <div class="spectrum">
+      <div class="spectrum-label">Five commercial models, one production lead</div>
+      <div class="spectrum-bar">
+        <span style="background:var(--c-console)"></span>
+        <span style="background:var(--c-licensed)"></span>
+        <span style="background:var(--c-platform)"></span>
+        <span style="background:var(--c-social)"></span>
+        <span style="background:var(--c-founder)"></span>
+      </div>
+      <div class="spectrum-keys">
+        <div class="spectrum-key"><span class="dot" style="background:var(--c-console)"></span>AAA Console</div>
+        <div class="spectrum-key"><span class="dot" style="background:var(--c-licensed)"></span>Licensed IP</div>
+        <div class="spectrum-key"><span class="dot" style="background:var(--c-platform)"></span>Platform</div>
+        <div class="spectrum-key"><span class="dot" style="background:var(--c-social)"></span>Social &amp; Casual</div>
+        <div class="spectrum-key"><span class="dot" style="background:var(--c-founder)"></span>Founder Led Indie</div>
+      </div>
+    </div>
+
+    <div class="hero-links">
+      <a href="mailto:skumar2802@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/sunithakumargirish" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sunifyre" target="_blank" rel="noopener">GitHub</a>
+      <a href="Sunitha_Kumar_Girish_Resume_Director.pdf" target="_blank" rel="noopener">Download résumé</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Leadership highlights</span>
+    <div class="highlights-grid">
+      <div class="highlight"><p><strong>Founder, twice over.</strong> Ran Laughing Buddha Games and Budai Labs end to end as sole executive, owning product, team, and commercial direction throughout.</p></div>
+      <div class="highlight"><p><strong>Zero to one, three times.</strong> Built creator tooling from scratch: the LEGO Brick Editor with Epic Games, an AI powered Production Canvas tool, and Shopify agency tooling for BudAI.</p></div>
+      <div class="highlight"><p><strong>Distributed at scale.</strong> Led teams from eight person cross functional pods to an eighteen person team spread across five countries, through founder stage ambiguity and AAA scale structure alike.</p></div>
+      <div class="highlight"><p><strong>Range across models.</strong> Operated commercially across AAA console, licensed IP, social and casual, platform, and founder led indie, a breadth most single track producers don't carry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <span class="eyebrow">Professional experience</span>
+
+    <div class="exp-row" data-tag="licensed">
+      <div class="exp-meta">
+        <span class="dates">May 2026 – Present</span>
+        <span class="tag"><span class="dot" style="background:var(--c-licensed)"></span>Licensed IP</span>
+      </div>
+      <div class="exp-body">
+        <h3>Lead Producer, LEGO GAME</h3>
+        <p class="company">The LEGO Group, Billund, Denmark</p>
+        <ul>
+          <li>Lead cross functional delivery of LEGO digital play experiences on Roblox, from concept through launch.</li>
+          <li>Designed and piloted an AI powered Production Canvas tool spanning journey mapping, data forecasting, GDD gap tracking, dependency mapping, session time validation, and risk heatmapping, validated on a live Roblox production ahead of a wider rollout decision.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="licensed">
+      <div class="exp-meta">
+        <span class="dates">Jun 2025 – May 2026</span>
+        <span class="tag"><span class="dot" style="background:var(--c-licensed)"></span>Licensed IP</span>
+      </div>
+      <div class="exp-body">
+        <h3>Lead Producer, Creator Experiences</h3>
+        <p class="company">LEGO GAME, The LEGO Group, Billund, Denmark</p>
+        <ul>
+          <li>Led an eight person cross functional team through a two to three month concept to ship cycle for UEFN creator tooling improvements, coordinating sign off across Epic Games, Legal, Marketing, and Brand Governance.</li>
+          <li>Co shipped Ninja Sushi Chaos, a joint UEFN title developed in partnership with Sublab Games.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="licensed">
+      <div class="exp-meta">
+        <span class="dates">Apr 2023 – Jul 2025</span>
+        <span class="tag"><span class="dot" style="background:var(--c-licensed)"></span>Licensed IP</span>
+      </div>
+      <div class="exp-body">
+        <h3>Senior Technical Product Lead</h3>
+        <p class="company">LEGO GAME, The LEGO Group, Billund, Denmark</p>
+        <ul>
+          <li>Partnered directly with Epic Games to lead the zero to one design, build, and launch of LEGO Brick Editor, one of the first creator tooling plugins built for Unreal Engine for Fortnite, leading an eight person team including four engineers across a two plus year build.</li>
+          <li>Headed the LEGO Unity plugin team in parallel, overseeing technical delivery across two engine ecosystems.</li>
+          <li>Handled technical onboarding and support for Atom across external partners including TT Games, Nintendo, Blue Zoo, SuperCell, Wizards of the Coast, Ace Games, LEGOLAND Parks Shanghai, and Studio Gobo, as well as internal LEGO teams.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="founder">
+      <div class="exp-meta">
+        <span class="dates">Jun 2022 – Apr 2023</span>
+        <span class="tag"><span class="dot" style="background:var(--c-founder)"></span>Industry &amp; Advocacy</span>
+      </div>
+      <div class="exp-body">
+        <h3>Executive Committee Member</h3>
+        <p class="company">Singapore Games Association (SGGA), Singapore</p>
+        <ul>
+          <li>Shaped industry strategy and advocacy initiatives for Singapore based studios, publishers, and investors as part of the executive committee.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="console">
+      <div class="exp-meta">
+        <span class="dates">Apr 2019 – Sep 2022</span>
+        <span class="tag"><span class="dot" style="background:var(--c-console)"></span>AAA Console</span>
+      </div>
+      <div class="exp-body">
+        <h3>Associate Producer</h3>
+        <p class="company">Ubisoft Singapore</p>
+        <ul>
+          <li>Led delivery of progression, economy, onboarding, and world systems content for Skull and Bones, coordinating an eighteen person team distributed across Chengdu, Berlin, Paris, Singapore, and Ukraine through to gold release.</li>
+          <li>Ran Scrum based delivery across design, engineering, and art disciplines, managing milestone risk and cross studio dependencies on a global production.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="founder">
+      <div class="exp-meta">
+        <span class="dates">Mar 2011 – Apr 2019</span>
+        <span class="tag"><span class="dot" style="background:var(--c-founder)"></span>Founder Led Indie</span>
+      </div>
+      <div class="exp-body">
+        <h3>Creative Director and Co-Founder</h3>
+        <p class="company">Laughing Buddha Games, Clayton, CA</p>
+        <ul>
+          <li>Founded and ran a children's games studio end to end, owning product strategy, fundraising conversations, team building, and commercial decisions as sole executive, shipping StarSmasher on iOS, Amazon, and Google Play.</li>
+          <li>Designed and led development of Athena, an AR/VR edtech sandbox prototype showcased at 500 Startups.</li>
+          <li>Co-wrote and co-directed the VR film Hito.</li>
+          <li>Awarded Best Female Indie, Casual Connect Asia 2013. Top 10 nominee, Indie Showcase, Casual Connect Asia 2013.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="platform">
+      <div class="exp-meta">
+        <span class="dates">Aug 2017 – Apr 2019</span>
+        <span class="tag"><span class="dot" style="background:var(--c-platform)"></span>Platform</span>
+      </div>
+      <div class="exp-body">
+        <h3>Principal Engineer and Founder</h3>
+        <p class="company">Budai Labs (first iteration), Singapore</p>
+        <ul>
+          <li>Founded and ran a certified Shopify Expert agency as sole executive, owning client acquisition, delivery, and product direction, delivering fifty plus bespoke e-commerce stores.</li>
+          <li>Accepted into Facebook FBStart 2017 Bootstrap Track, developing the BudAI Messenger chatbot and BudAI Bazaar marketplace.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="social">
+      <div class="exp-meta">
+        <span class="dates">Feb 2010 – Apr 2010</span>
+        <span class="tag"><span class="dot" style="background:var(--c-social)"></span>Social &amp; Casual</span>
+      </div>
+      <div class="exp-body">
+        <h3>Senior Project Manager</h3>
+        <p class="company">PopCap Games, Seattle, WA</p>
+        <ul>
+          <li>Led the Facebook integration of Bejeweled Blitz, contributing to a title that scaled to over ten million monthly active users and more than a billion sessions played.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="platform">
+      <div class="exp-meta">
+        <span class="dates">Feb 2006 – Jan 2009</span>
+        <span class="tag"><span class="dot" style="background:var(--c-platform)"></span>Platform</span>
+      </div>
+      <div class="exp-body">
+        <h3>Program Manager</h3>
+        <p class="company">Microsoft, Redmond, WA</p>
+        <ul>
+          <li>Part of a twenty person team delivering Windows Gaming Platform features across Windows 98, 2000, XP, and 7.</li>
+          <li>Designed and shipped the externally facing Games Explorer statistics API for the DirectX SDK.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row" data-tag="console">
+      <div class="exp-meta">
+        <span class="dates">Aug 2003 – Feb 2005</span>
+        <span class="tag"><span class="dot" style="background:var(--c-console)"></span>AAA Console</span>
+      </div>
+      <div class="exp-body">
+        <h3>Software Developer</h3>
+        <p class="company">Electronic Arts, Redwood City, CA</p>
+        <ul>
+          <li>Provided technical game support and improved data pipelines through software automation.</li>
+          <li>Developed and shipped EasyInfo on Sims 4, and built a browser plugin prototype for the Pogo team.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Core skills</span>
+
+    <div class="skill-group">
+      <h3>Production &amp; Methodology</h3>
+      <div class="pills">
+        <span class="pill">Agile / Scrum leadership</span>
+        <span class="pill">Sprint planning</span>
+        <span class="pill">Backlog &amp; roadmap ownership</span>
+        <span class="pill">Risk management</span>
+        <span class="pill">Dependency tracking</span>
+        <span class="pill">Milestone delivery</span>
+        <span class="pill">Incremental delivery</span>
+        <span class="pill">Requirements gathering</span>
+        <span class="pill">Scoping</span>
+        <span class="pill">Stakeholder management</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <div class="pills">
+        <span class="pill">Jira</span>
+        <span class="pill">Confluence</span>
+        <span class="pill">Unity</span>
+        <span class="pill">Unreal Engine (UEFN)</span>
+        <span class="pill">Roblox Studio</span>
+        <span class="pill">Git</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Technical Fluency</h3>
+      <div class="pills">
+        <span class="pill">Game engine pipelines</span>
+        <span class="pill">DevOps &amp; CI workflows</span>
+        <span class="pill">Test driven development principles</span>
+        <span class="pill">Technical risk assessment</span>
+        <span class="pill">Cross engine production</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Studio Leadership &amp; Strategy</h3>
+      <div class="pills">
+        <span class="pill">Founder / CEO level ownership</span>
+        <span class="pill">P&amp;L</span>
+        <span class="pill">Fundraising conversations</span>
+        <span class="pill">Team building from zero</span>
+        <span class="pill">Multi business model fluency</span>
+        <span class="pill">IP strategy</span>
+        <span class="pill">Partner negotiation</span>
+        <span class="pill">Organizational design</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Leadership</h3>
+      <div class="pills">
+        <span class="pill">Cross functional team leadership</span>
+        <span class="pill">Coaching &amp; mentoring</span>
+        <span class="pill">External partner management</span>
+        <span class="pill">Global distributed teams</span>
+        <span class="pill">AAA &amp; live service production</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="meta-grid">
+      <div class="meta-col">
+        <h3>Education</h3>
+        <p><strong>Oxford Executive Leadership Programme</strong>Saïd Business School, University of Oxford</p>
+        <p><strong>MSc, Computer Software Engineering</strong>Golden Gate University, San Francisco, CA</p>
+        <p><strong>BA, English Language and Literature</strong>Saint Mary's College of California, Moraga, CA</p>
+      </div>
+      <div class="meta-col">
+        <h3>Certifications</h3>
+        <p><strong>Scaled Scrum Expert</strong>Scrum Inc.</p>
+        <p><strong>Agile Coach</strong>ICAgile</p>
+        <p><strong>Scrum Product Owner</strong>Scrum Alliance</p>
+        <p><strong>Certified ScrumMaster (CSM)</strong>Scrum Alliance</p>
+      </div>
+      <div class="meta-col">
+        <h3>Awards</h3>
+        <p><strong>Best Female Indie Award</strong>Casual Connect Asia, 2013</p>
+        <p><strong>FBStart Bootstrap Track</strong>Facebook, 2017</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2>Open to Director and senior production leadership roles in games, creative technology, and platform ecosystems.</h2>
+    <p class="lead">Reach out directly, or find the full history on LinkedIn and GitHub.</p>
+    <div class="contact-links">
+      <a href="mailto:skumar2802@gmail.com">skumar2802@gmail.com</a>
+      <a href="https://linkedin.com/in/sunithakumargirish" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sunifyre" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Sunitha Kumar Girish
+</footer>
+
+<script>
+  const rows = document.querySelectorAll('.exp-row');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    rows.forEach(r => r.classList.add('in-view'));
+  } else if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    rows.forEach(r => observer.observe(r));
+  } else {
+    rows.forEach(r => r.classList.add('in-view'));
+  }
+</script>
+
+</body>
+</html>
